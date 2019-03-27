@@ -48,7 +48,7 @@ awk '{ print $2|"sort -nk2 "}' url1.log | uniq > temp
 echo "#####################################################################
 buying and selling quantity
 #####################################################################"
-rm -rf buy* sell*
+rm -rf buy* sell* url_*
 for j in `cat temp`
 do
 awk -v mul=$j ' { if ( $2 ~ mul ) { print $1 } }' url1.log >> url_$j.log
@@ -78,6 +78,7 @@ IFS=$'\n'
                 fi      
         rm -rf $i
 	done
+	break
 done
 cat buy_* > buy
 cat sell_* > sell
