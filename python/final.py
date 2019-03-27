@@ -13,6 +13,8 @@
 #print(dfs1)
 import requests
 import pandas as pd
+import html5lib
+from bs4 import BeautifulSoup
 url='https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol=TATASTEEL'
 #url = 'https://www.investing.com/earnings-calendar/'
 header = {
@@ -23,4 +25,4 @@ r = requests.get(url, headers=header)
 #dfs = pd.read_html(r.text,attrs={'id':'responseDiv'})
 dfs = pd.read_html(r.text)
 #print(dfs[5].transpose())
-print(dfs[5])
+print(dfs)
